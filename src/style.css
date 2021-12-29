@@ -1,0 +1,157 @@
+:root {
+  --font-size: 20px;
+  --spacing: .5rem;
+
+  --color-black: #000020;
+  --color-white: #ffffff;
+  --color-red: #ea193e;
+  --color-dark-red: #880c21;
+  --color-yellow: #ffb500;
+  --color-dark-blue: #192142;
+
+  font-size: var(--font-size);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  margin: 0;
+  font: var(--font-size) "Courier New", monospace;
+  color: var(--color-white);
+  background: var(--color-black);
+}
+
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: var(--spacing);
+}
+
+a {
+  color: var(--color-white);
+}
+
+a:visited {
+  color: var(--color-white);
+  text-decoration-thickness: 1px;
+}
+
+a:active {
+  color: var(--color-yellow)
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  align-items: center;
+  justify-content: center;
+  min-width: 24rem;
+}
+
+.sfx-controls {
+  align-self: flex-start;
+}
+
+.music-controls {
+  align-self: flex-end;
+}
+
+.sound-test-controls fieldset {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  background: var(--color-dark-blue);
+  border: 1px solid var(--color-yellow);
+}
+
+.sound-test-controls fieldset > legend,
+.sound-test-controls fieldset > .legend {
+  all: unset;
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  justify-content: space-between;
+  float: left;
+  padding-bottom: var(--spacing);
+  border-bottom: 1px solid var(--color-yellow);
+}
+
+.sound-test-controls .controls-group {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+}
+
+.sound-test-controls select,
+.sound-test-controls button,
+.sound-test-controls input[type="submit"] {
+  font: inherit;
+  color: inherit;
+  background: var(--color-red);
+  border: 1px solid var(--color-yellow);
+}
+
+.sound-test-controls select {
+  padding-right: 3px;
+}
+
+.sound-test-controls label {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  user-select: none;
+}
+
+.sound-test-controls input[type="checkbox"] {
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.sound-test-controls input[type="checkbox"]::before {
+  display: block;
+  width: .75rem;
+  height: .75rem;
+  padding: 1px;
+  overflow: hidden;
+  font-size: .75rem;
+  text-align: center;
+  content: "";
+  border: 1px solid var(--color-yellow);
+}
+
+.sound-test-controls input[type="checkbox"]:checked::before {
+  content: "X";
+  background-color: var(--color-red);
+}
+
+.sound-test-controls button:hover,
+.sound-test-controls input[type="submit"]:hover,
+.sound-test-controls input[type="checkbox"]:checked:hover::before {
+  background: var(--color-dark-red);
+}
+
+.sound-test-controls button:active,
+.sound-test-controls input[type="submit"]:active,
+.sound-test-controls input[type="checkbox"]:checked:active::before {
+  color: var(--color-yellow);
+}
+
+.sound-test-controls input[type="checkbox"]:focus-visible {
+  outline-offset: 0;
+}

@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "rimraf dist && run-p \"dev:*\" --print-label",
+    "dev:copy": "run-s _copy _copy-watch",
+    "dev:esbuild": "npm run _bundle -- --sourcemap --serve=127.0.0.1:3000 --servedir=dist",
+    "build": "tsc && rimraf dist && run-s \"build:*\"",
+    "build:copy": "npm run _copy",
+    "build:esbuild": "npm run _bundle -- --minify",
+    "preview": "esbuild --serve=127.0.0.1:5000 --servedir=dist",
+    "_copy": "copyfiles \"src/**/*\" dist --exclude \"**/*.{ts,css}\" --up 1",
+    "_copy-watch": "chokidar \"src/**/*\" --ignore \"**/*.{ts,css}\" --command \"copyfiles {path} dist --up 1\"",
+    "_bundle": "esbuild src/main.ts src/style.css --bundle --format=esm --outdir=dist"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "copyfiles": "^2.4.1",
+    "esbuild": "^0.14.9",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  },
+  "private": true
+}

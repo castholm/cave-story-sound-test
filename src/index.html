@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cave Story Sound Test</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav><a href="https://github.com/castholm/cave-story-sound-test">GitHub</a></nav>
+    <main id="sound-test">Loading...</main>
+    <template id="sfx-controls-template">
+      <form class="sfx-controls sound-test-controls">
+        <fieldset>
+          <div class="legend">
+            <span class="title">SFX</span>
+          </div>
+          <div class="controls-group">
+            <select class="options"></select>
+            <label class="loop" hidden><input type="checkbox"> Loop</label>
+            <input type="submit" class="play" value="Play">
+          </div>
+        </fieldset>
+      </form>
+    </template>
+    <template id="music-controls-template">
+      <form class="music-controls sound-test-controls">
+        <fieldset>
+          <div class="legend">
+            <span class="title">Music</span>
+            <span class="status">0.000</span>
+          </div>
+          <div class="controls-group">
+            <select class="options"></select>
+            <input type="submit" class="play-pause" value="Play/Pause">
+            <input type="submit" class="stop" value="Stop">
+          </div>
+        </fieldset>
+      </form>
+    </template>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
