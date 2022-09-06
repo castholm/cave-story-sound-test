@@ -1,11 +1,13 @@
+#Requires -Version 5.0
+
 [CmdletBinding()]
 param (
     [string] $Source = "Doukutsu.exe",
-    [string] $Destination = "PIXTONEPARAMETERS"
+    [string] $Destination = "PIXTONEPARAMS"
 )
 
 $ErrorActionPreference = "Stop"
-Set-StrictMode -Version 3
+Set-StrictMode -Version 3.0
 
 if ((Get-FileHash -LiteralPath $Source).Hash -notin (
     "E02CC98F5914EC80ABE2B6190CF158B889DB08AE3FA3EB8074283495E8AD770B", # Japanese

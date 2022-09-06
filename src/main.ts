@@ -1,9 +1,9 @@
-import { Lazy } from "./utils/Lazy"
-import { readPixToneParameters } from "./pixTone/readPixToneParameters"
-import { renderPixToneSample } from "./pixTone/renderPixToneSample"
-import { OrganyaMusicPlayer } from "./organya/OrganyaMusicPlayer"
-import type { OrganyaSong } from "./organya/OrganyaSong"
-import { readOrganyaSong } from "./organya/readOrganyaSong"
+import { Lazy } from "./utils/Lazy.js"
+import { readPixToneParameters } from "./pixTone/readPixToneParameters.js"
+import { renderPixToneSample } from "./pixTone/renderPixToneSample.js"
+import { OrganyaMusicPlayer } from "./organya/OrganyaMusicPlayer.js"
+import type { OrganyaSong } from "./organya/OrganyaSong.js"
+import { readOrganyaSong } from "./organya/readOrganyaSong.js"
 
 const audioContext = new Lazy(() => new AudioContext({ latencyHint: "interactive" }))
 
@@ -16,7 +16,7 @@ const sfxOptions = sfxControls.querySelector<HTMLSelectElement>(".options")!
 
 const sfxSamples = new Map<string, AudioBuffer>()
 await (async () => {
-  const res = await fetch("data/PIXTONEPARAMETERS")
+  const res = await fetch(new URL("data/PIXTONEPARAMS", import.meta.url))
   if (!res.ok) {
     throw new Error("Failed to fetch PixTone parameters.")
   }
@@ -166,7 +166,7 @@ for (const key of songKeys) {
 musicOptions.selectedIndex = 0
 
 const melodyWaveformData = await (async () => {
-  const res = await fetch("data/WAVE/WAVE100")
+  const res = await fetch(new URL("data/WAVE/WAVE100", import.meta.url))
   if (!res.ok) {
     throw new Error("Failed to fetch melody waveform data.")
   }
@@ -206,7 +206,7 @@ async function setSelectedSong(): Promise<void> {
   const selectedSongKey = musicOptions.value
   let song = songCache.get(selectedSongKey)
   if (song == undefined) {
-    const res = await fetch(`data/ORG/${selectedSongKey}`)
+    const res = await fetch(new URL(`./data/ORG/${selectedSongKey}`, import.meta.url))
     if (!res.ok) {
       throw new Error("Failed to fetch Organya song.")
     }

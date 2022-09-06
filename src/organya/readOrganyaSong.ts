@@ -1,5 +1,5 @@
-import type { OrganyaSong, OrganyaNote, OrganyaTrack } from "./OrganyaSong"
-import { DataReader } from "../utils/DataReader"
+import type { OrganyaSong, OrganyaNote, OrganyaTrack } from "./OrganyaSong.js"
+import { DataReader } from "../utils/DataReader.js"
 
 export function readOrganyaSong(
   data: ArrayBuffer,

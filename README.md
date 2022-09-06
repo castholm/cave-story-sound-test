@@ -37,10 +37,10 @@ appropriate location in `src` by following these steps:
 2. Open the extracted `Doukutsu.exe` using 7zip or an equivalent tool and extract the contents of `.rsrc/1041/WAVE`
    and `.rsrc/1041/ORG` to `src/data/WAVE` and `src/data/ORG` respectively.
 3. Copy `ExtractPixToneParameters.ps1` from the `scripts` directory to the directory in which `Doukutsu.exe` resides
-   and run it using PowerShell. A file named `PIXTONEPARAMETERS` will be created. Move or copy it to `src/data`.
+   and run it using PowerShell. A file named `PIXTONEPARAMS` will be created. Move or copy it to `src/data`.
 
-To test the web app while developing, run `npm run dev` to start a development server on port 3000 on localhost which
+To test the web app while developing, run `npm run dev` to start a development server on port 5173 on localhost which
 will watch the `src` directory for changes and serve the most recent version of all files.
 
-To build a minified and optimized build, run `npm run build`, which will output everything to `dist`, ready to be
-published. To preview this build, run `npm run preview` to open a server on port 5000 on localhost.
+To build a minified and optimized build, run `npm run build`, which will output everything to `dst`, ready to be
+published. To preview this build, run `npm run preview` to open a server on port 4173 on localhost.

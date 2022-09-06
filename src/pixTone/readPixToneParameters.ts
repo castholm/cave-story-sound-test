@@ -1,5 +1,5 @@
-import type { PixToneParameters, PixToneWaveformParameters } from "./PixToneParameters"
-import { DataReader } from "../utils/DataReader"
+import type { PixToneParameters, PixToneWaveformParameters } from "./PixToneParameters.js"
+import { DataReader } from "../utils/DataReader.js"
 
 export function readPixToneParameters(data: ArrayBuffer): PixToneParameters[] {
   const parameters: PixToneParameters[] = []

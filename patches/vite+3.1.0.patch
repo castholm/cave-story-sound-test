@@ -1,0 +1,31 @@
+diff --git a/node_modules/vite/dist/node/chunks/dep-665b0112.js b/node_modules/vite/dist/node/chunks/dep-665b0112.js
+index e793a9b..4e9d1e1 100644
+--- a/node_modules/vite/dist/node/chunks/dep-665b0112.js
++++ b/node_modules/vite/dist/node/chunks/dep-665b0112.js
+@@ -33468,7 +33468,7 @@ function assetFileNamesToFileName(assetFileNames, file, contentHash, content) {
+     // `hash` is slightly different from the rollup's one
+     const extname = path$n.extname(basename);
+     const ext = extname.substring(1);
+-    const name = basename.slice(0, -extname.length);
++    const name = basename.slice(0, -extname.length || basename.length);
+     const hash = contentHash;
+     if (typeof assetFileNames === 'function') {
+         assetFileNames = assetFileNames({
+@@ -35966,7 +35966,7 @@ async function toAbsoluteGlob(glob, root, importer, resolveId) {
+     if (isAbsolute$2(resolved)) {
+         return pre + globSafeResolvedPath(resolved, glob);
+     }
+-    throw new Error(`Invalid glob: "${glob}" (resolved: "${resolved}"). It must start with '/' or './'`);
++    return pre + posix$2.join(dir, glob.slice(2));
+ }
+ function getCommonBase(globsResolved) {
+     const bases = globsResolved
+@@ -60350,7 +60350,7 @@ function transformMiddleware(server) {
+                     logger.warn(picocolors.exports.yellow(warning));
+                 }
+             }
+-            if (isJSRequest(url) ||
++            if ((isJSRequest(url) && !server.config.assetsInclude(withoutQuery)) ||
+                 isImportRequest(url) ||
+                 isCSSRequest(url) ||
+                 isHTMLProxy(url)) {

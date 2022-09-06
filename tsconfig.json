@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // Type Checking
     "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -10,21 +11,20 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
+    // Modules
     "module": "esnext",
-    "moduleResolution": "node",
-
+    "moduleResolution": "nodenext",
+    // Emit
     "noEmit": true,
-    "sourceMap": true,
-
+    // Interop Constraints
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-
+    // Language and Environment
     "lib": ["esnext", "dom", "dom.iterable"],
     "target": "esnext",
-
+    // Completeness
     "skipLibCheck": true,
   },
-  "include": ["src"],
+  "include": ["src/"],
 }

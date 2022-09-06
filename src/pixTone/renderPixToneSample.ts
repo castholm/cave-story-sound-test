@@ -1,4 +1,4 @@
-import type { PixToneParameters } from "./PixToneParameters"
+import type { PixToneParameters } from "./PixToneParameters.js"
 
 let msvcRandomState = 0
 

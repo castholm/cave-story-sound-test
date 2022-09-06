@@ -1,4 +1,4 @@
-import type { OrganyaSong, OrganyaTrack } from "./OrganyaSong"
+import type { OrganyaSong, OrganyaTrack } from "./OrganyaSong.js"
 
 const CHANNEL_COUNT = 16
 const MELODY_CHANNEL_COUNT = 8
